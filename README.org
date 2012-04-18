@@ -73,11 +73,12 @@
    > !ddg richard stallman
    Running...
    >
-   0. https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman Richard
-      Matthew Stallman – Wikipédia, a enciclopédia livre
-   1. https://www.facebook.com/people/Richard-Stallman/100000599450702
-      Facebook - Richard Stallman
-   2. http://www.stallman.org/ Personal home page ...
+   0 https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman Richard
+   Matthew Stallman – Wikipédia, a enciclopédia livre
+   1 https://www.facebook.com/people/Richard-Stallman/100000599450702
+   Facebook - Richard Stallman
+   2 http://www.stallman.org/ 
+   Personal home page ...
 
    > #
    0. https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman
