@@ -6,7 +6,7 @@
 
 * Obligatory Screenshot
 
-  http://i.imgur.com/G89dU.png
+  [[http://i.imgur.com/G89dU.png]]
 
 * Features
 
@@ -70,21 +70,23 @@
    them, acessible with "#". For example:
 
 #+BEGIN_SRC: sh
-   ➤ !ddg richard stallman Running...  ➤
+   > !ddg richard stallman
+   Running...
+   >
    0. https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman Richard
       Matthew Stallman – Wikipédia, a enciclopédia livre
    1. https://www.facebook.com/people/Richard-Stallman/100000599450702
       Facebook - Richard Stallman
    2. http://www.stallman.org/ Personal home page ...
 
-      ➤ #
+   > #
    0. https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman
    1. https://www.facebook.com/people/Richard-Stallman/100000599450702
    2. http://www.stallman.org/ ...
 
-      ➤ #2
-      Opening page.
-      ➤
+   > #2
+   Opening page.
+   >
 #+END_SRC
 
 ** History
