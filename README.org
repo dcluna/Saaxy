@@ -54,8 +54,15 @@
    that these commands are all relative to /dict/ with /@/:
 
 #+BEGIN_SRC: sh
-   > @dict dict dict> scoundrel ...  dict> baritone ...  dict> @@
-   Context reset.  >
+   > @dict 
+   dict 
+   dict> scoundrel 
+   ...  
+   dict> baritone 
+   ...  
+   dict> @@
+   Context reset.  
+   >
 #+END_SRC
 
 ** Linked items
@@ -64,18 +71,26 @@
    them, accessible with "#". For example:
 
 #+BEGIN_SRC: c
-   > !ddg richard stallman Running...  > 0
-   https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman Richard
-   Matthew Stallman – Wikipédia, a enciclopédia livre 1
-   https://www.facebook.com/people/Richard-Stallman/100000599450702
-   Facebook - Richard Stallman 2 http://www.stallman.org/ Personal
-   home page ...
+   > !ddg richard stallman 
+   Running...  
+   >
+   0 https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman 
+   Richard Matthew Stallman – Wikipédia, a enciclopédia livre
+   1 https://www.facebook.com/people/Richard-Stallman/100000599450702
+   Facebook - Richard Stallman
+   2 http://www.stallman.org/ 
+   Personal home page 
+   ...
 
-   > # 0 https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman 1
-   https://www.facebook.com/people/Richard-Stallman/100000599450702 2
-   http://www.stallman.org/ ...
+   > # 
+   0 https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman
+   1 https://www.facebook.com/people/Richard-Stallman/100000599450702
+   2 http://www.stallman.org/ 
+   ...
 
-   > #2 Opening page.  >
+   > #2 
+   Opening page. 
+   >
 #+END_SRC
 
 ** History
