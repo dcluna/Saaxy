@@ -49,7 +49,7 @@
 
 ** Context
 
-   Suppose you are reading a book. Instead of having to type everytime
+   Suppose you are reading a book. Instead of having to type every time
    /!dict scoundrel/, /!dict baritone/ etc, you can just specify that
    these commands are all relative to /dict/ with /@/:
 
@@ -68,7 +68,7 @@
 ** Linked items
 
    Some commands do not only list the results, but specify actions on
-   them, acessible with "#". For example:
+   them, accessible with "#". For example:
 
 #+BEGIN_SRC: c
    > !ddg richard stallman
