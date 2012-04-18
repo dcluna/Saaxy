@@ -26,11 +26,18 @@
 
 (defgroup saaxy nil "Sexy services" :tag "saaxy" :group 'web)
 
+(defcustom saaxy-hide-adult
+  nil
+  "Hide adult sites from the !help listing"
+  :group 'saaxy
+  :type 'boolean)
+
 (defcustom saaxy-noncommand-handler 
   (lambda (a b) (format "You said: \"%s\". Try !help" a))
   "Function to handle commandless text."
   :group 'saaxy
   :type 'sexp)
+
 (defcustom saaxy-custom-commands '()
   "List of commands you'd like to use on Saaxy. See saaxy-commands on saaxy.el"
   :group 'saaxy

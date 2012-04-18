@@ -103,6 +103,14 @@
    transforms the html through the function and adds the resulting
    string to the Saaxy buffer.
 
+** Adult content
+
+   It might not be appropriate to show adult-related services, so you
+   can hide them from /!help/ by setting the
+   /saaxy-hide-adult/ variable with /M-x customize-variable/.
+   
+   This will work for both default commands and custom commands.
+
 * Roadmap
 ** [70%] v1
    1. [X] Colorize output

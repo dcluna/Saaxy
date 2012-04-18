@@ -153,8 +153,9 @@
         and y = nil then (plist-put y (plist-get x 'class) (cons (plist-get x 'name) (plist-get y (plist-get x 'class))))
         finally return
         (loop for h = y then (cddr h) while h
-              collecting (cons (propertize (format "%s:\n" (car h)) 'font-lock-face '(:weight bold))
-                               (mapcar (lambda (el) (format "%s, " (propertize (format "%s" el) 'font-lock-face `(:foreground ,(color-for (format "%s" (car h))))))) (cadr h)))
+              unless (and saaxy-hide-adult (equal (car h) 'adult))
+              collect (cons (propertize (format "%s:\n" (car h)) 'font-lock-face '(:weight bold))
+                            (mapcar (lambda (el) (format "%s, " (propertize (format "%s" el) 'font-lock-face `(:foreground ,(color-for (format "%s" (car h))))))) (cadr h)))
               into lists and finally return (apply #'concat (mapcar (lambda (el) (concat (substring (apply #'concat el) 0 -2) "\n")) lists)))))
 
 (defun saaxy-aux-say (args arglist)
