@@ -40,7 +40,7 @@
    |              | [[http://github.com/konr/tomatinho][Tomatinho]]'s history view              | !th                              |
    |              | [[http://github.com/konr/tomatinho][Tomatinho]]'s tube view                 | !tt                              |
    |--------------+---------------------------------------+----------------------------------|
-   | English      | Wordnet                               | !dict revigorating               |
+   | English      | Wordnet                               | !dict truth                      |
    |--------------+---------------------------------------+----------------------------------|
    | Adult        | Monica's tube                         | !monica bikini                   |
    |--------------+---------------------------------------+----------------------------------|

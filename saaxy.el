@@ -51,7 +51,7 @@
     (name freebase class web function (lambda (a al) (saaxy-async-command (format "https://www.googleapis.com/freebase/v1/search?indent=true&query=%s" (url-hexify-string a))
                                                                      #'saaxy-aux-freebase)))
     (name reddit class web function (lambda (a al) (saaxy-async-command (format "http://www.reddit.com/r/%s/.json" (url-hexify-string a)) #'saaxy-aux-reddit)))
-    (name ddg class web function (lambda (a al) (saaxy-async-command (format "http://duckduckgo.com/lite/?kp=-1&kl=br-pt&k1=-1&q=%s" (url-hexify-string a)) #'saaxy-aux-ddg)))
+    (name ddg class web function (lambda (a al) (saaxy-async-command (format "http://duckduckgo.com/lite/?kp=-1&k1=-1&q=%s" (url-hexify-string a)) #'saaxy-aux-ddg)))
     (name help class sys function saaxy-aux-help)
     (name au class portuguese function  (lambda (a al) (saaxy-async-command (format "http://www.dicionariodoaurelio.com/%s.html" (url-hexify-string a)) #'saaxy-aux-au)))
     (name mic class portuguese function (lambda (a al) (saaxy-async-command (format "http://michaelis.uol.com.br/moderno/portugues/index.php?lingua=portugues-portugues&palavra=%s"
