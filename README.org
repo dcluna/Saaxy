@@ -2,7 +2,7 @@
 
   Saaxy is just a way to use services with the dead-simple interface of
   IRC bots. The name comes from SaaS + Sexy, but some system tools are
-  included, as well, and it's dead-simple to add your own utilities.
+  included, as well, and it's easy to add your own utilities.
 
 * Obligatory Screenshot
 
@@ -49,20 +49,13 @@
 
 ** Context
 
-   Suppose you are reading a book. Instead of having to type every time
-   /!dict scoundrel/, /!dict baritone/ etc, you can just specify that
-   these commands are all relative to /dict/ with /@/:
+   Suppose you are reading a book. Instead of having to type every
+   time /!dict scoundrel/, /!dict baritone/ etc, you can just specify
+   that these commands are all relative to /dict/ with /@/:
 
 #+BEGIN_SRC: sh
-   > @dict 
-   dict
-   dict> scoundrel
-   ...
-   dict> baritone
-   ...
-   dict> @@
-   Context reset.
-   >
+   > @dict dict dict> scoundrel ...  dict> baritone ...  dict> @@
+   Context reset.  >
 #+END_SRC
 
 ** Linked items
@@ -71,29 +64,39 @@
    them, accessible with "#". For example:
 
 #+BEGIN_SRC: c
-   > !ddg richard stallman
-   Running...
-   >
-   0 https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman Richard
-   Matthew Stallman – Wikipédia, a enciclopédia livre
-   1 https://www.facebook.com/people/Richard-Stallman/100000599450702
-   Facebook - Richard Stallman
-   2 http://www.stallman.org/ 
-   Personal home page ...
+   > !ddg richard stallman Running...  > 0
+   https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman Richard
+   Matthew Stallman – Wikipédia, a enciclopédia livre 1
+   https://www.facebook.com/people/Richard-Stallman/100000599450702
+   Facebook - Richard Stallman 2 http://www.stallman.org/ Personal
+   home page ...
 
-   > #
-   0 https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman
-   1 https://www.facebook.com/people/Richard-Stallman/100000599450702
-   2 http://www.stallman.org/ ...
+   > # 0 https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman 1
+   https://www.facebook.com/people/Richard-Stallman/100000599450702 2
+   http://www.stallman.org/ ...
 
-   > #2
-   Opening page.
-   >
+   > #2 Opening page.  >
 #+END_SRC
 
 ** History
 
    /M-n/ and /M-p/ go back and forth in the history
+
+** Custom commands
+
+   Add custom commands to the variable /saaxy-custom-commands/. You
+   can do that by manually setting it in your dotfiles or using /M-x
+   customize-variable/.
+
+   Each command must be a [[http://emacswiki.org/emacs/AlistVsPlist][plist]], with the keys /name/, /class/, and
+   /function/, and the function must take two arguments: (1) a string
+   containing the command's parameters and a list of them. For
+   example:
+
+#+BEGIN_SRC: lisp
+   '((name kk class sys function saaxy-c-kk) 
+     (name ddbr class portuguese function (lambda (a al) (saaxy-async-command (format "http://duckduckgo.com/lite/?kp=-1&kl=br-pt&k1=-1&q=%s" (url-hexify-string a)) #'saaxy-aux-ddg))))
+#+END_SRC
 
 
 * Roadmap
