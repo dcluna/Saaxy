@@ -97,7 +97,7 @@
 
 
 * Roadmap
-** [60%] v1
+** [70%] v1
    1. [X] Colorize output
    2. [X] Async web stuff
    3. [X] 'M-n' & 'M-p' should work in a context
@@ -106,7 +106,7 @@
    6. [X] Remove useless functions
    7. [ ] Docs
    8. [ ] Must work on Windows
-   9. [ ] Custom functions
+   9. [X] Custom functions
    10. [ ] Screencast
 
 *** [%] v2

@@ -95,15 +95,6 @@
     (setq saaxy-buffers (plist-put saaxy-buffers id (url-retrieve url new (list id))))
     (propertize "Running..." 'id id)))
 
-(defun saaxy-aux-doctor (args arglist)
-  (let ((exists (get-buffer saaxy-doctor-buffer-name)))
-    (with-current-buffer (get-buffer-create saaxy-doctor-buffer-name)
-      (unless exists (doctor-mode))
-      (goto-char (point-max))
-      (insert (format "%s\n\n" args))
-      (let ((so-far (point-max)))
-        (doctor-ret-or-read 1)
-        (buffer-substring (+ so-far 1) (- (point-max) 2))))))
 ;;;;;;;;;;;
 ;; Adult ;;
 ;;;;;;;;;;;
@@ -157,7 +148,7 @@
 ;;;;;;;;;;;;
 
 (defun saaxy-aux-help (args arglist)
-  (loop for x in saaxy-commands
+  (loop for x in (append saaxy-commands saaxy-custom-commands)
         and y = nil then (plist-put y (plist-get x 'class) (cons (plist-get x 'name) (plist-get y (plist-get x 'class))))
         finally return
         (loop for h = y then (cddr h) while h
