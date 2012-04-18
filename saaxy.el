@@ -77,12 +77,11 @@
                                                                          #'saaxy-aux-vadio)))
     (name tiny class url function (lambda (a al) (saaxy-async-command (format "http://tinyurl.com/api-create.php?url=%s" (url-hexify-string a)) #'saaxy-aux-tinyurl)))))
 
-(defvar saaxy-error-message "Error occurred.")
 (defvar saaxy-context-reset-message "Context reset.")
 (defvar saaxy-function-not-defined-message "Function not defined.")
 (defvar saaxy-goodies nil)
 (defvar saaxy-buffers nil)
-(defvar saaxy-e404 (propertize "Not found :'(" 'font-lock-face '(:foreground "#FF0000")))
+(defvar saaxy-error (propertize "Error occurred." 'font-lock-face '(:foreground "#FF0000")))
 
 
 ;;;;;;;;;;;
@@ -253,7 +252,7 @@
                    (arglist (append arglist '(()))) ;; FIXME: Stupid (apply #'null nil) bug.
                    (args (if (> (length args) 0) (substring args 0 -1) args))
                    (result (if (functionp function) (progn (apply function args (list arglist))) saaxy-function-not-defined-message)))
-              (if result (progn (setq saaxy-history (cons `(type valid-command data ,command) saaxy-history)) result) saaxy-error-message)))
+              (if result (progn (setq saaxy-history (cons `(type valid-command data ,command) saaxy-history)) result) saaxy-error)))
         (?# (let* ((s (substring string 1 -1)) (n (string-to-int s)) (goodie (plist-get saaxy-goodies n)))
               (if (not (string= s "")) (eval (plist-get goodie 'call))
                 (loop for head = saaxy-goodies then (cddr head) while head collecting

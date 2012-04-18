@@ -5,24 +5,24 @@
 
 ;;;            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
 ;;;                    Version 2, December 2004
-;;; 
+;;;
 ;;; Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
-;;; 
+;;;
 ;;; Everyone is permitted to copy and distribute verbatim or modified
 ;;; copies of this license document, and changing it is allowed as long
 ;;; as the name is changed.
-;;; 
+;;;
 ;;;            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
 ;;;   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
-;;; 
+;;;
 ;;;  0. You just DO WHAT THE FUCK YOU WANT TO.
 
 
 ;;; Commentary
 
 ;; In this file, I define some commands and well as auxiliary
-;; functions. 
-;; 
+;; functions.
+;;
 ;; The command must be a function that takes two arguments: (1) a
 ;; string containing the command's argument, eg, "foo bar" in
 ;; "!command foo bar", and (2) a list of the commands, ie, '("foo"
@@ -89,9 +89,10 @@
 (defun saaxy-async-command (url function)
   (let* ((id (intern (md5 url)))
          (new `(lambda (status id)
-                 (with-current-buffer (get-buffer saaxy-buffer-name)
-                   (saaxy-insert-text (,function status (buffer-sans-headers (plist-get saaxy-buffers id))))
-                   (saaxy-add-line)))))
+                 (let ((result (or (ignore-errors (,function status (buffer-sans-headers (plist-get saaxy-buffers id)))) saaxy-error)))
+                   (with-current-buffer (get-buffer saaxy-buffer-name)
+                     (saaxy-insert-text result)
+                     (saaxy-add-line))))))
     (setq saaxy-buffers (plist-put saaxy-buffers id (url-retrieve url new (list id))))
     (propertize "Running..." 'id id)))
 
@@ -298,7 +299,7 @@
     (delete-region (line-beginning-position) (point-max))
     (decode-coding-string (url-unhex-string (buffer-string)) 'utf-8)))
 
-(defun saaxy-aux-wordnet-call (a al) 
+(defun saaxy-aux-wordnet-call (a al)
   (saaxy-async-command (format "http://wordnetweb.princeton.edu/perl/webwn?s=%s" (url-hexify-string a)) #'saaxy-aux-wordnet))
 
 (defun saaxy-aux-wordnet (status html)
