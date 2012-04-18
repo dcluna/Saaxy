@@ -69,7 +69,7 @@
    Some commands do not only list the results, but specify actions on
    them, acessible with "#". For example:
 
-#+BEGIN_SRC: sh
+#+BEGIN_SRC: c
    > !ddg richard stallman
    Running...
    >
