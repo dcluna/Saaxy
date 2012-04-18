@@ -1,0 +1,118 @@
+* About
+
+  Saaxy is just a way to use services with the dead-simple interface of
+  IRC bots. The name comes from SaaS + Sexy, but some system tools are
+  included, as well, and it's dead-simple to add your own utilities.
+
+* Obligatory Screenshot
+
+  http://i.imgur.com/G89dU.png
+
+* Features
+
+** Services
+
+   | Type         | Name                                  | How to use                       |
+   |--------------+---------------------------------------+----------------------------------|
+   | Web          | Freebase Search                       | !freebase milton friedman        |
+   |              | Reddit - Top stories from a subreddit | !reddit paleo                    |
+   |              | Duckduckgo                            | !ddg quid est veritas            |
+   |              | Wolfram Alpha                         | !wa carbs in 300g of heavy cream |
+   |              | Transmission - Torrent Listing        | !trans                           |
+   |--------------+---------------------------------------+----------------------------------|
+   | System       | Festival speech synthesizer           | !say cabbage-brained             |
+   |              | Clean history                         | !clean                           |
+   |              | Eval and pretty-print                 | !pp '((1 2) (3 4))               |
+   |              | Exit Saaxy                            | !bye                             |
+   |              | Eval expression                       | !eval (+ 3 4)                    |
+   |              | Run shell command                     | !sh date                         |
+   |              | *The help system*                     | *!help*                          |
+   |--------------+---------------------------------------+----------------------------------|
+   | Portuguese   | Rhyme dictionary in portuguese        | !vadio coito 4                   |
+   |              | 'Porto' dictionary                    | !por amável                      |
+   |              | 'Michaelis' dictionary                | !mic amável                      |
+   |              | 'Aurélio' dictionary                  | !au amável                       |
+   |--------------+---------------------------------------+----------------------------------|
+   | Shortening   | TinyURL shortening                    | !tiny http://goatse.cz           |
+   |              | TinyCC shortening                     | !tinycc http://goatse.cz         |
+   |--------------+---------------------------------------+----------------------------------|
+   | Productivity | Current time                          | !now                             |
+   |              | [[http://github.com/konr/tomatinho][Tomatinho]]'s history view              | !th                              |
+   |              | [[http://github.com/konr/tomatinho][Tomatinho]]'s tube view                 | !tt                              |
+   |--------------+---------------------------------------+----------------------------------|
+   | English      | Wordnet                               | !dict revigorating               |
+   |--------------+---------------------------------------+----------------------------------|
+   | Adult        | Monica's tube                         | !monica bikini                   |
+   |--------------+---------------------------------------+----------------------------------|
+   | Latin        | Latin->English                        | !latin veritas                   |
+   |              | English->Latin                        | !tolat truth                     |
+
+** Context
+
+   Suppose you are reading a book. Instead of having to type everytime
+   /!dict scoundrel/, /!dict baritone/ etc, you can just specify that
+   these commands are all relative to /dict/ with /@/:
+
+#+BEGIN_SRC: sh
+   > @dict dict
+   dict> scoundrel
+   ...
+   dict> baritone
+   ...
+   dict> @@
+   Context reset.
+   >
+#+END_SRC
+
+** Linked items
+
+   Some commands do not only list the results, but specify actions on
+   them, acessible with "#". For example:
+
+#+BEGIN_SRC: sh
+   ➤ !ddg richard stallman Running...  ➤
+   0. https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman Richard
+      Matthew Stallman – Wikipédia, a enciclopédia livre
+   1. https://www.facebook.com/people/Richard-Stallman/100000599450702
+      Facebook - Richard Stallman
+   2. http://www.stallman.org/ Personal home page ...
+
+      ➤ #
+   0. https://pt.wikipedia.org/wiki/Richard_Matthew_Stallman
+   1. https://www.facebook.com/people/Richard-Stallman/100000599450702
+   2. http://www.stallman.org/ ...
+
+      ➤ #2
+      Opening page.
+      ➤
+#+END_SRC
+
+** History
+
+   /M-n/ and /M-p/ go back and forth in the history
+
+
+* Roadmap
+** [60%] v1
+   1. [X] Colorize output
+   2. [X] Async web stuff
+   3. [X] 'M-n' & 'M-p' should work in a context
+   4. [X] History
+   5. [X] Some english dictionary
+   6. [X] Remove useless functions
+   7. [ ] Docs
+   8. [ ] Must work on Windows
+   9. [ ] Custom functions
+   10. [ ] Screencast
+
+*** [%] v2
+    1. [ ] Tab-completion specific to the context.
+    2. [ ] More personal productivity commands
+    3. [ ] Wikimedia
+    4. [ ] context in shell
+    5. [ ] Better transmission support
+    6. [ ] Priberam
+    7. [ ] On-the-fly
+    8. [ ] Establish a testing scheme
+    9. [ ] Funding
+
