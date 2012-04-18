@@ -54,7 +54,8 @@
    these commands are all relative to /dict/ with /@/:
 
 #+BEGIN_SRC: sh
-   > @dict dict
+   > @dict 
+   dict
    dict> scoundrel
    ...
    dict> baritone
