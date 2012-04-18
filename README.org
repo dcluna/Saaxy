@@ -94,10 +94,14 @@
    example:
 
 #+BEGIN_SRC: lisp
-   '((name kk class sys function saaxy-c-kk) 
-     (name ddbr class portuguese function (lambda (a al) (saaxy-async-command (format "http://duckduckgo.com/lite/?kp=-1&kl=br-pt&k1=-1&q=%s" (url-hexify-string a)) #'saaxy-aux-ddg))))
+   '((name kk class sys function saaxy-c-kk)
+   (name ddbr class portuguese function (lambda (a al) (saaxy-async-command (format "http://duckduckgo.com/lite/?kp=-1&kl=br-pt&k1=-1&q=%s" (url-hexify-string a)) #'saaxy-aux-ddg))))
 #+END_SRC
 
+   The previous example uses the function /saaxy-async-command/, which
+   takes an URL and a function, and then asynchronously GETs the URL,
+   transforms the html through the function and adds the resulting
+   string to the Saaxy buffer.
 
 * Roadmap
 ** [70%] v1
