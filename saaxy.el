@@ -157,6 +157,8 @@
     (define-key map (kbd "M-p") 'saaxy-complete-history)
     map))
 
+(defvar saaxy-mode-hook nil)
+
 (defun saaxy-mode ()
   (use-local-map saaxy-map)
   (font-lock-mode 1)
@@ -167,7 +169,8 @@
   (insert (saaxy-stickify "\n")) (saaxy-add-line)
 
   ;; Hook to deal with on-the-fly completion
-  (add-hook 'after-change-functions (lambda (beg end &rest dunno) (saaxy-handle-typed beg end)) nil t))
+  (add-hook 'after-change-functions (lambda (beg end &rest dunno) (saaxy-handle-typed beg end)) nil t)
+  (run-mode-hooks 'saaxy-mode-hook))
 
 (defun saaxy-add-line ()
   (with-current-buffer saaxy-buffer-name
